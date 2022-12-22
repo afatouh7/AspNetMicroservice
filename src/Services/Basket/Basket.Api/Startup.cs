@@ -1,3 +1,4 @@
+using Basket.Api.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -33,7 +34,8 @@ namespace Basket.Api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Basket.Api", Version = "v1" });
-            }); 
+            });
+            services.AddScoped<IBaskRepository, BaskRepository>();
 
         }
 
